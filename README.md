@@ -29,12 +29,11 @@
 ### 1. Download the Interpreter
 Grab the latest stable release for your platform:
 
-[Download glang.oda](https://github.com/pouyathe/glang/releases)
+[Download glang.oda](https://github.com/pouyathe/glang/source/oda/glang_foroda.oda)
 ***
 see [this](https://github.com/pouyathe/oda) for how to make it yourself.
 Also You can download source files for :
-    [cmake-d](https://github.com/pouyathe/glang/releases)
-    [dub](https://github.com/pouyathe/glang/releases)
+    [dub](https://github.com/pouyathe/glang/source/dub)
     
 
 Extract the archive and add the `glang` binary to your system PATH.
