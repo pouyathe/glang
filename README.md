@@ -96,6 +96,38 @@ This is a single line comment
 ```
 > Comments dosen't have any symbol just write them like normal text!
 
+### Flex
+g since v5.7.6 support functions.
+if you want to create, downlaod, install librarys for G, Use ```flex```.
+```bash
+sudo flex add hi #it add hi lib it just a function then return hi.
+sudo flex add netg #a library for use post(send) to a server with data.txt
+```
+```g
+std.main:
+    std.echo "Hi lib Example!"
+    ln
+    glue flex.hi
+    fn hi
+std.end: exit N
+```
+> use flex.libname for libarrys you install with flex.
+
+```g
+std.main:
+    std.echo "Netg example."
+    ln
+    glue flex.netg
+    [%] : "https://example.com/"
+    fn netg
+std.end: exit N
+```
+
+> netg use % (global string) to get url address & use data.txt to get data for send to url.
+
+```json
+{"text" : "Hi"}
+```
 ---
 
 ## 🤝 Contributing
