@@ -118,6 +118,5 @@ This project is licensed under the GNUv3 License - see the [LICENSE](LICENSE) fi
 ---
 
 <div align="center">
-Made with ❤️ by [Pouya](https://github.com/pouyathe)
+Made with ❤️ by <a href="https://github.com/pouyathe">Pouya Mohammadi</a>
 </div>
-```
