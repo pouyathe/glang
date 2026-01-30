@@ -96,38 +96,75 @@ This is a single line comment
 ```
 > Comments dosen't have any symbol just write them like normal text!
 
-### Flex
-g since v5.7.6 support functions.
-if you want to create, downlaod, install librarys for G, Use ```flex```.
+
+## 📦 Package Manager: Flex
+
+Since **v5.7.6**, G comes with `flex`, a built-in package manager. You can easily create, download, and install external libraries.
+
+### Installation (Global)
+You may need to run `flex` with root privileges to install libraries globally.
+
 ```bash
-sudo flex add hi #it add hi lib it just a function then return hi.
-sudo flex add netg #a library for use post(send) to a server with data.txt
+sudo flex add <library_name>
 ```
+
+### Usage
+1.  Use `glue flex.<library_name>` to import the library into your code.
+2.  Call the functions provided by the library.
+
+### Example 1: The "hi" Library
+This example installs and uses a simple library that returns a greeting.
+
+**Install:**
+```bash
+sudo flex add hi
+```
+
+**Code (`hi.g`):**
 ```g
 std.main:
     std.echo "Hi lib Example!"
     ln
+    
+    // Import the library
     glue flex.hi
+    
+    // Call the function from the library
     fn hi
+
 std.end: exit N
 ```
-> use flex.libname for libarrys you install with flex.
 
+### Example 2: The "netg" Library
+A library for sending HTTP POST requests to a server.
+
+**Install:**
+```bash
+sudo flex add netg
+```
+
+**Code (`net.g`):**
 ```g
 std.main:
     std.echo "Netg example."
     ln
+    
+    // Import the networking library
     glue flex.netg
+    
+    // Set the global URL variable
     [%] : "https://example.com/"
+    
+    // Send the data in 'data.txt' to the URL
     fn netg
+
 std.end: exit N
 ```
 
-> netg use % (global string) to get url address & use data.txt to get data for send to url.
+**How it works:**
+*   The `netg` library uses the global string variable `%` to get the URL address.
+*   It automatically reads a `data.txt` file from your current directory and sends it as a JSON POST request.
 
-```json
-{"text" : "Hi"}
-```
 ---
 
 ## 🤝 Contributing
