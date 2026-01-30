@@ -29,16 +29,22 @@
 ### 1. Download the Interpreter
 Grab the latest stable release for your platform:
 
-[Download Stable.zip](https://github.com/pouyathe/glang/releases) *(Replace with your actual link)*
+[Download glang.oda](https://github.com/pouyathe/glang/releases)
+***
+see [this](https://github.com/pouyathe/oda) for how to make it yourself.
+Also You can download source files for :
+    [cmake-d](https://github.com/pouyathe/glang/releases)
+    [dub](https://github.com/pouyathe/glang/releases)
+    
 
 Extract the archive and add the `glang` binary to your system PATH.
 
 ### 2. VS Code Extension (Recommended)
-Get syntax highlighting and custom icons for `.g` files.
+Get custom icons for `.g` files.
 
-*   **Search:** `G Language Support` in the VS Code Marketplace.
+*   **Search:** `G Language icon Support` in the VS Code Marketplace.
 *   **Or Install Manually:**
-    1.  Download the `.vsix` file from the [Releases](https://github.com/pouyathe/glang/releases) page.
+    1.  Download the `.vsix` file from the [Releases](https://github.com/pouyathe/vscode_icon-glang/releases) page.
     2.  Open VS Code -> Extensions -> ... -> Install from VSIX.
 
 ---
@@ -48,26 +54,15 @@ Get syntax highlighting and custom icons for `.g` files.
 Create a file named `hello.g`:
 
 ```g
-func std.main() {
-    // Print to console
-    std.echo("Hello, World!");
-    
-    // Standard Library usage
-    std.newline;
-    
-    // Variables and Logic
-    flex x = 10;
-    if (x > 5) {
-        std.echo("x is greater than 5");
-    }
-    
-    std.end;
-}
+std.main:
+    std.echo "Hello world!"
+    ln
+std.end: exit N
 ```
 
 **Run it:**
 ```bash
-glang hello.g
+glang -c hello.g
 ```
 
 ---
@@ -75,30 +70,32 @@ glang hello.g
 ## 📖 Syntax Overview
 
 ### Functions
-Define functions using the `func` keyword.
+Define functions using the `fn` keyword.
 
 ```g
-func add(int a, int b) {
-    std.echo(a + b);
-}
+fn add_two
+    [@] : + 2
+
 ```
+> A Function must define in just one file for multi function use must create another files.
 
 ### Standard Library (`std`)
 Access powerful built-in functions easily.
 
-*   `std.echo(string)` : Print output.
+*   `std.echo "string"` : Print output.
 *   `std.newline` : Print a new line.
-*   `std.exit()` : Terminate the program.
+*   `std.exit` : Terminate the program.
 
 ### Comments
 ```g
-// This is a single line comment
+This is a single line comment
 
-/* 
+
    Multi-line comments
    are also supported
-*/
+
 ```
+> Comments dosen't have any symbol just write them like normal text!
 
 ---
 
@@ -116,7 +113,7 @@ We welcome contributions! Please feel free to submit a Pull Request.
 
 ## 📜 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNUv3 License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
