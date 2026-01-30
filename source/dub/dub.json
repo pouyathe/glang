@@ -1,0 +1,12 @@
+{
+	"authors": [
+		"Pouya Mohammmadi"
+	],
+	"copyright": "Copyright © 2026, Pouya Mohammmadi",
+	"dependencies": {
+		
+	},
+	"description": "Interpreter for glang.",
+	"license": "proprietary",
+	"name": "glang"
+}
