@@ -128,10 +128,10 @@ std.main:
     std.echo "Hi lib Example!"
     ln
     
-    // Import the library
+    Import the library
     glue flex.hi
     
-    // Call the function from the library
+    Call the function from the library
     fn hi
 
 std.end: exit N
@@ -150,14 +150,14 @@ sudo flex add netg
 std.main:
     std.echo "Netg example."
     ln
-    
-    // Import the networking library
+    This is a comment.
+    Import the networking library
     glue flex.netg
     
-    // Set the global URL variable
+     Set the global URL variable
     [%] : "https://example.com/"
     
-    // Send the data in 'data.txt' to the URL
+    Send the data in 'data.txt' to the URL
     fn netg
 
 std.end: exit N
