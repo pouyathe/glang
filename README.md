@@ -188,4 +188,5 @@ This project is licensed under the GNUv3 License - see the [LICENSE](LICENSE) fi
 
 <div align="center">
 Made with ❤️ by <a href="https://github.com/pouyathe">Pouya Mohammadi</a>
+if be anything to u want tell me, just email me :)
 </div>
