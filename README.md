@@ -100,7 +100,7 @@ This is a single line comment
 
 ## Tools
 The under tools are written fully with G.
-[fuchsia : A Shell written with G.](https://pouyathe/fuchsia)
+[fuchsia : A Shell written with G.](https://github.com/pouyathe/fuchsia)
 
 ## 📦 Package Manager: Flex
 
