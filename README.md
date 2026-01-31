@@ -15,7 +15,7 @@
 ---
 
 ## 🚀 About G
-[![Starred by Walter Bright](https://img.shields.io/badge/Starred_by-Walter_Bright-red?style=flat&logo=D)](https://github.com/WalterBright)
+
 **G** is a lightweight, high-performance programming language designed for developers who value speed and safety. With a tiny interpreter footprint (~2.4MB), G delivers instant startup and execution without the bloat of modern runtimes.
 
 ### Key Features
