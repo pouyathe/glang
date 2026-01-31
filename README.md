@@ -8,13 +8,13 @@
 [![License](https://img.shields.io/badge/license-GNU-blue.svg)](LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/pouyathe/glang?style=social)](https://github.com/pouyathe/glang)
 ![Made with D](https://img.shields.io/badge/Made%20with-D-000000?style=for-the-badge&logo=d)
-[![Starred by Walter Bright](https://img.shields.io/badge/Starred_by-Walter_Bright-red?style=flat&logo=D)](https://github.com/WalterBright)
+
 </div>
 
 ---
 
 ## 🚀 About G
-
+[![Starred by Walter Bright](https://img.shields.io/badge/Starred_by-Walter_Bright-red?style=flat&logo=D)](https://github.com/WalterBright)
 **G** is a lightweight, high-performance programming language designed for developers who value speed and safety. With a tiny interpreter footprint (~2.4MB), G delivers instant startup and execution without the bloat of modern runtimes.
 
 ### Key Features
