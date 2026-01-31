@@ -3,7 +3,7 @@
 # G
 
 <div align="center">
-**Data type, memory safe & super fast programming language.**
+Data type, memory safe & super fast programming language.
 
 [![License](https://img.shields.io/badge/license-GNU-blue.svg)](LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/pouyathe/glang?style=social)](https://github.com/pouyathe/glang)
