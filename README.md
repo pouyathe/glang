@@ -98,6 +98,9 @@ This is a single line comment
 ```
 > Comments dosen't have any symbol just write them like normal text!
 
+## Tools
+The under tools are written fully with G.
+[fuchsia : A Shell written with G.](https://pouyathe/fuchsia)
 
 ## 📦 Package Manager: Flex
 
