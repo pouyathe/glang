@@ -3,7 +3,6 @@
 # G
 
 <div align="center">
-![G Logo](glogo.png)
 **Data type, memory safe & super fast programming language.**
 
 [![License](https://img.shields.io/badge/license-GNU-blue.svg)](LICENSE)
@@ -14,6 +13,7 @@
 
 ---
 
+![Fuchsia Shell Screenshot](glogo.png)
 ## 🚀 About G
 
 **G** is a lightweight, high-performance programming language designed for developers who value speed and safety. With a tiny interpreter footprint (~2.4MB), G delivers instant startup and execution without the bloat of modern runtimes.
