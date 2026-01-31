@@ -3,7 +3,7 @@
 # G
 
 <div align="center">
-
+[G Logo](glogo.png)
 **Data type, memory safe & super fast programming language.**
 
 [![License](https://img.shields.io/badge/license-GNU-blue.svg)](LICENSE)
