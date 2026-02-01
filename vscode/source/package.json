@@ -1,0 +1,17 @@
+{
+    "name": "glang-icon-theme",
+    "displayName": "G Lang Icons",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.75.0"
+    },
+    "contributes": {
+        "iconThemes": [
+            {
+                "id": "glangIcons",
+                "label": "G Lang",
+                "path": "./icon-theme.json"
+            }
+        ]
+    }
+}

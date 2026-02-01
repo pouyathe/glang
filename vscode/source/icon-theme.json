@@ -1,0 +1,13 @@
+{
+    "iconDefinitions": {
+        "glangFile": {
+            "iconPath": "./logo.png"
+        }
+    },
+    "fileExtensions": {
+        "g": "glangFile"
+    },
+    "hidesExplorerArrows": false,
+    "folderExpanded": "",
+    "folder": ""
+}
