@@ -1,6 +1,8 @@
 
 
 # G
+![Visitors](https://visitor-badge.glitch.me/badge?page_id=pouyathe.glang) 
+**Recently cloned by 168+ developers** 🚀
 G featured on [Dev.to](https://dev.to/pouyathe/when-walter-bright-told-me-to-write-about-my-24mb-language-37ki).
 <div align="center">
 Data type, memory safe & super fast programming language.
