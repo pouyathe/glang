@@ -1,10 +1,10 @@
 
 
 # G
-
+G featured on [Dev.to](https://dev.to/pouyathe/when-walter-bright-told-me-to-write-about-my-24mb-language-37ki).
 <div align="center">
 Data type, memory safe & super fast programming language.
-G featured on [Dev.to](https://dev.to/pouyathe/when-walter-bright-told-me-to-write-about-my-24mb-language-37ki).
+
 [![License](https://img.shields.io/badge/license-GNU-blue.svg)](LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/pouyathe/glang?style=social)](https://github.com/pouyathe/glang)
 ![Made with D](https://img.shields.io/badge/Made%20with-D-000000?style=for-the-badge&logo=d)
