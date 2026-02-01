@@ -12,8 +12,11 @@ Data type, memory safe & super fast programming language.
 </div>
 
 ---
+## 🏆 Featured in awesome-d!
+G Language is now listed in the official [awesome-d](https://github.com/dlang-community/awesome-d) repository!
+This recognition from the D community validates our work in creating a minimal, memory-safe language built with D.
 
-![Fuchsia Shell Screenshot](glogo.png)
+![Glang logo](glogo.png)
 ## 🚀 About G
 
 **G** is a lightweight, high-performance programming language designed for developers who value speed and safety. With a tiny interpreter footprint (~2.4MB), G delivers instant startup and execution without the bloat of modern runtimes.
