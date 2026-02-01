@@ -48,7 +48,7 @@ Get custom icons for `.g` files.
 
 *   **Search:** `G Language icon Support` in the VS Code Marketplace.
 *   **Or Install Manually:**
-    1.  Download the `.vsix` file from the [Releases](https://github.com/pouyathe/vscode_icon-glang/releases) page.
+    1.  Download the `.vsix` file from the [Releases](https://github.com/pouyathe/glang/vscode/glang-vscode.vsix) page.
     2.  Open VS Code -> Extensions -> ... -> Install from VSIX.
 
 ---
