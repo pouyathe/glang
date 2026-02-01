@@ -8,7 +8,7 @@ Data type, memory safe & super fast programming language.
 [![License](https://img.shields.io/badge/license-GNU-blue.svg)](LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/pouyathe/glang?style=social)](https://github.com/pouyathe/glang)
 ![Made with D](https://img.shields.io/badge/Made%20with-D-000000?style=for-the-badge&logo=d)
-
+[![Awesome D](https://img.shields.io/badge/Awesome-D-brightgreen)](https://github.com/dlang-community/awesome-d)
 </div>
 
 ---
