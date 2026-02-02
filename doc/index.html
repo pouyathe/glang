@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The G Programming Language - Home of anything</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic+Guides&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <style>
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Open Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 100;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+            padding: 0;
+            margin: 0;
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+        }
+
+        /* ===== TOOLBAR ===== */
+        #toolbar {
+            background-color: #323330;
+            padding: 5px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .toolbar-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .toolbar-right {
+            display: flex;
+            align-items: center;
+        }
+
+        /* ===== MENU STYLES ===== */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #F7DF1E;
+            padding: 5px 10px;
+        }
+
+        .menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .menu li {
+            position: relative;
+        }
+
+        .menu a {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .menu a:hover {
+            background-color: rgba(247, 223, 30, 0.1);
+            color: #F7DF1E;
+        }
+
+        .menu a.active {
+            background-color: rgba(247, 223, 30, 0.2);
+            color: #F7DF1E;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        #tst {
+            padding: 40px 20px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .big {
+            font-size: 2rem;
+            color: white;
+            margin: 5px 0;
+            line-height: 1.3;
+        }
+
+        .small {
+            font-size: 1rem;
+            color: #aaa;
+            margin: 10px 0;
+        }
+
+        .lessb {
+            margin-bottom: 5px;
+        }
+
+        .stext {
+            font-family: "Playwrite NZ Basic Guides", cursive;
+            font-weight: 400;
+            font-style: normal;
+            color: #F7DF1E;
+        }
+
+        .stext2 {
+            font-family: "Gravitas One", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        /* ===== BUTTON STYLES ===== */
+        .button {
+            --h-button: 48px;
+            --w-button: 102px;
+            --round: 0.75rem;
+            cursor: pointer;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: all 0.25s ease;
+            background: radial-gradient(65.28% 65.28% at 50% 100%, rgba(255, 230, 0, 0.8) 0%, rgba(255, 230, 0, 0) 100%), linear-gradient(0deg, #F7DF1E, #F7DF1E);
+            border-radius: var(--round);
+            border: none;
+            outline: none;
+            padding: 12px 18px;
+            margin-top: 15px;
+        }
+        
+        .button::before, .button::after {
+            content: "";
+            position: absolute;
+            inset: var(--space);
+            transition: all 0.5s ease-in-out;
+            border-radius: calc(var(--round) - var(--space));
+            z-index: 0;
+        }
+        
+        .button::before {
+            --space: 1px;
+            background: linear-gradient(177.95deg, rgba(255, 255, 255, 0.19) 0%, rgba(255, 255, 255, 0) 100%);
+        }
+        
+        .button::after {
+            --space: 2px;
+            background: radial-gradient(65.28% 65.28% at 50% 100%, rgba(255, 230, 0, 0.8) 0%, rgba(255, 230, 0, 0) 100%), linear-gradient(0deg, #F7DF1E, #F7DF1E);
+        }
+        
+        .button:active {
+            transform: scale(0.95);
+        }
+        
+        .fold {
+            z-index: 1;
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 1rem;
+            width: 1rem;
+            display: inline-block;
+            transition: all 0.5s ease-in-out;
+            background: radial-gradient(100% 75% at 55%, rgba(255, 230, 0, 0.8) 0%, rgba(255, 230, 0, 0) 100%);
+            box-shadow: 0 0 3px black;
+            border-bottom-left-radius: 0.5rem;
+            border-top-right-radius: var(--round);
+        }
+        
+        .fold::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150%;
+            height: 150%;
+            transform: rotate(45deg) translateX(0%) translateY(-18px);
+            background-color: #323330;
+            pointer-events: none;
+        }
+        
+        .button:hover .fold {
+            margin-top: -1rem;
+            margin-right: -1rem;
+        }
+
+        .points_wrapper {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            position: absolute;
+            z-index: 1;
+        }
+        
+        .points_wrapper .point {
+            bottom: -10px;
+            position: absolute;
+            animation: floating-points infinite ease-in-out;
+            pointer-events: none;
+            width: 2px;
+            height: 2px;
+            background-color: #fff;
+            border-radius: 9999px;
+        }
+        
+        @keyframes floating-points {
+            0% { transform: translateY(0); }
+            85% { opacity: 0; }
+            100% { transform: translateY(-55px); opacity: 0; }
+        }
+        
+        .points_wrapper .point:nth-child(1) { left: 10%; opacity: 1; animation-duration: 2.35s; animation-delay: 0.2s; }
+        .points_wrapper .point:nth-child(2) { left: 30%; opacity: 0.7; animation-duration: 2.5s; animation-delay: 0.5s; }
+        .points_wrapper .point:nth-child(3) { left: 25%; opacity: 0.8; animation-duration: 2.2s; animation-delay: 0.1s; }
+        .points_wrapper .point:nth-child(4) { left: 44%; opacity: 0.6; animation-duration: 2.05s; }
+        .points_wrapper .point:nth-child(5) { left: 50%; opacity: 1; animation-duration: 1.9s; }
+        .points_wrapper .point:nth-child(6) { left: 75%; opacity: 0.5; animation-duration: 1.5s; animation-delay: 1.5s; }
+        .points_wrapper .point:nth-child(7) { left: 88%; opacity: 0.9; animation-duration: 2.2s; animation-delay: 0.2s; }
+        .points_wrapper .point:nth-child(8) { left: 58%; opacity: 0.8; animation-duration: 2.25s; animation-delay: 0.2s; }
+        .points_wrapper .point:nth-child(9) { left: 98%; opacity: 0.6; animation-duration: 2.6s; animation-delay: 0.1s; }
+        .points_wrapper .point:nth-child(10) { left: 65%; opacity: 1; animation-duration: 2.5s; animation-delay: 0.2s; }
+
+        .inner {
+            z-index: 2;
+            gap: 6px;
+            position: relative;
+            width: 100%;
+            color: #323330;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.5;
+            transition: color 0.2s ease-in-out;
+        }
+        
+        .inner svg.icon {
+            width: 18px;
+            height: 18px;
+            transition: fill 0.1s linear;
+        }
+        
+        .button:focus svg.icon { fill: #323330; }
+        
+        .button:hover svg.icon {
+            fill: transparent;
+            animation: dasharray 1s linear forwards, filled 0.1s linear forwards 0.95s;
+        }
+        
+        @keyframes dasharray { from { stroke-dasharray: 0 0 0 0; } to { stroke-dasharray: 68 68 0 0; } }
+        @keyframes filled { to { fill: #323330; } }
+
+        /* ===== SEARCH BAR ===== */
+        .group {
+            display: flex;
+            line-height: 28px;
+            align-items: center;
+            position: relative;
+            width: 200px;
+        }
+
+        .input {
+            font-family: "Open Sans", sans-serif;
+            width: 100%;
+            height: 45px;
+            padding-left: 2.5rem;
+            box-shadow: 0 0 0 1.5px #444, 0 0 25px -17px #000;
+            border: 0;
+            border-radius: 12px;
+            background-color: #2a2a2a;
+            outline: none;
+            color: #ddd;
+            transition: all 0.25s cubic-bezier(0.19, 1, 0.22, 1);
+            cursor: text;
+            z-index: 0;
+        }
+        
+        .input::placeholder { color: #aaa; }
+        
+        .input:hover { box-shadow: 0 0 0 2.5px #F7DF1E, 0px 0px 25px -15px #000; }
+        
+        .input:active { transform: scale(0.95); }
+        
+        .input:focus { box-shadow: 0 0 0 2.5px #F7DF1E; }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            fill: #aaa;
+            width: 1rem;
+            height: 1rem;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ===== WHY G SECTION ===== */
+        .container {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            gap: 30px;
+        }
+
+        .why-g-content {
+            flex: 1;
+        }
+
+        .why-g-title {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: #F7DF1E;
+        }
+
+        .why-g-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .highlight {
+            color: #F7DF1E;
+            font-weight: 600;
+        }
+
+        /* ===== CODE EXAMPLES ===== */
+        #codexamples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .code-block {
+            background-color: #2a2a2a;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-left: 4px solid #F7DF1E;
+        }
+
+        .code-block pre {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #f0f0f0;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+
+        .code-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #F7DF1E;
+            font-weight: 600;
+        }
+
+        /* ===== TRY G SECTION ===== */
+        #giveitatry {
+            background-color: #323330;
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        #giveitatry h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #F7DF1E;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #252525;
+            color: #aaa;
+            padding: 50px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            color: #F7DF1E;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #F7DF1E;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #F7DF1E;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #323330;
+            border-radius: 50%;
+            color: #F7DF1E;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: #F7DF1E;
+            color: #323330;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 40px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* ===== LOADER STYLES ===== */
+        .loader-wrapper {
+            flex-shrink: 0;
+        }
+
+        .loader {
+            --color-one: #F7DF1E;
+            --color-two: #d4b900;
+            --color-three: #F7DF1E80;
+            --color-four: #d4b90080;
+            --color-five: #F7DF1E40;
+            --time-animation: 2s;
+            --size: 1;
+            position: relative;
+            border-radius: 50%;
+            transform: scale(var(--size));
+            box-shadow: 0 0 25px 0 var(--color-three), 0 20px 50px 0 var(--color-four);
+            animation: colorize calc(var(--time-animation) * 3) ease-in-out infinite;
+            width: 120px;
+            height: 120px;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background-color: #323330;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+                z-index: 1000;
+                width: 200px;
+            }
+            
+            .menu.active {
+                display: flex;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .big {
+                font-size: 1.6rem;
+            }
+            
+            #giveitatry h1 {
+                font-size: 2rem;
+            }
+            
+            .group {
+                width: 150px;
+            }
+        }
+    </style>
+
+    <!-- TOOLBAR WITH MENU -->
+    <div id="toolbar">
+        <div class="toolbar-left">
+            <!-- Yellow G Logo -->
+            <div style="width: 50px; height: 50px; background-color: #F7DF1E; display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: 'Gravitas One', serif; font-size: 32px; color: #323330; font-weight: bold;">G</span>
+            </div>
+            
+            <div class="group">
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon">
+                    <g>
+                        <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+                    </g>
+                </svg>
+                <input id="query" class="input" type="search" placeholder="Search..." name="searchbar">
+            </div>
+        </div>
+        
+        <div class="toolbar-right">
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <ul class="menu" id="mainMenu">
+                <li><a href="https://glang.ct.ws/" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="https://github.com/pouyathe/glang/releases/v5.0.0"><i class="fas fa-download"></i> Download</a></li>
+                </ul>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="tst">
+        <p class="big lessb">Super fast, tiny footprint (about 2.4MB) & memory safe</p>
+        <p class="big lessb stext">All Be "The G programming language"</p>
+        <p class="small lessb">* if you can give star to project, to everyone can see it!</p>
+        
+        <br>
+        
+        <a href="https://github.com/pouyathe/glang/releases/tag/v.5.0.0"><button type="button" class="button">
+            <span class="fold"></span>
+            <div class="points_wrapper">
+                <i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i>
+                <i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i>
+                <i class="point"></i><i class="point"></i>
+            </div>
+            <span class="inner">
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+                    <polyline points="13.18 1.37 13.18 9.64 21.45 9.64 10.82 22.63 10.82 14.36 2.55 14.36 13.18 1.37"></polyline>
+                </svg>
+                Download
+            </span>
+        </button>
+        </a>
+    </div>
+
+    <!-- WHY G SECTION -->
+    <div class="container">
+        <div class="loader-wrapper">
+            <div class="loader">
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                    <defs>
+                        <mask id="clipping">
+                            <polygon points="0,0 100,0 100,100 0,100" fill="black"></polygon>
+                            <polygon points="25,25 75,25 50,75" fill="white"></polygon>
+                            <polygon points="50,25 75,75 25,75" fill="white"></polygon>
+                            <polygon points="35,35 65,35 50,65" fill="white"></polygon>
+                            <polygon points="35,35 65,35 50,65" fill="white"></polygon>
+                            <polygon points="35,35 65,35 50,65" fill="white"></polygon>
+                            <polygon points="35,35 65,35 50,65" fill="white"></polygon>
+                        </mask>
+                    </defs>
+                </svg>
+                <div class="box"></div>
+            </div>
+        </div>
+        
+        <div class="why-g-content">
+            <div class="why-g-title stext">Why G?</div>
+            <p class="why-g-text">
+                G is <span class="highlight">fast</span>, has a <span class="highlight">very tiny footprint</span> in your hard disk (only 2.4MB), 
+                and features an <span class="highlight">easy syntax</span> to understand with a powerful package-lib manager called <code class="highlight">flex</code>.
+            </p>
+            <p class="why-g-text">
+                Built with performance in mind, G offers memory safety without sacrificing speed. 
+                Whether you're building system utilities, web servers, or desktop applications, 
+                G provides the tools you need with minimal resource consumption.
+            </p>
+        </div>
+    </div>
+
+    <!-- CODE EXAMPLES -->
+    <div id="codexamples">
+        <div class="code-block">
+            <div class="code-title">Hello World</div>
+            <pre>
+std.main:
+    std.echo "Hello world"
+    ln
+std.end: exit N</pre>
+        </div>
+        
+        <div class="code-block">
+            <div class="code-title">Network Request</div>
+            <pre>
+std.main: 
+    glue flex.netg
+    this is a comment!
+    [%] : "https://example.com/"
+    fn netg
+std.end: exit N</pre>
+        </div>
+        
+        <div class="code-block">
+            <div class="code-title">User Input</div>
+            <pre>
+std.main:
+    glue gcolor
+    glue string
+
+    std.echo "Type your name : "
+    get_n
+    becho
+    fcolor __gcolor__:blue
+    std.echo "Hi "
+    fecho %
+    ln
+    fcolor __gcolor__:system
+std.end: exit N</pre>
+        </div>
+        
+        <div class="code-block">
+            <div class="code-title">Math Operations</div>
+            <pre>
+std.main:
+    [@] : 12
+    [@] : + 23
+    [@] : * 2
+    [@] : / 2
+    int.echo
+    ln
+std.end: exit N</pre>
+        </div>
+    </div>
+
+    <!-- TRY G SECTION -->
+    <div id="giveitatry">
+        <h1>So, Let's give G a try...</h1>
+        <a href="https://github.com/pouyathe/glang/releases/tag/v.5.0.0">
+            <button type="button" class="button">
+                <span class="fold"></span>
+                <div class="points_wrapper">
+                    <i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i>
+                    <i class="point"></i><i class="point"></i><i class="point"></i><i class="point"></i>
+                    <i class="point"></i><i class="point"></i>
+                </div>
+                <span class="inner">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+                        <polyline points="13.18 1.37 13.18 9.64 21.45 9.64 10.82 22.63 10.82 14.36 2.55 14.36 13.18 1.37"></polyline>
+                    </svg>
+                    Download Now
+                </span>
+            </button>
+        </a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>G Language</h3>
+                <p>A fast, minimal programming language with a tiny footprint. Built for developers who value performance and simplicity.</p>
+                <div class="social-icons">
+                    <a href="https://github.com/pouyathe/glang" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="Discord"><i class="fab fa-discord"></i></a>
+                    <a href="#" title="Reddit"><i class="fab fa-reddit"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="https://glang.ct.ws/">Home</a></li>
+                    <li><a href="https://github.com/pouyathe/glang/tree/main/examples">Code Examples</a></li>
+                    <li><a href="https://github.com/pouyathe/glang/releases/tag/v.5.0.0">Download</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    
+                    <li><a href="https://github.com/pouyathe/glang">Contribute</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul class="footer-links">
+                    
+                    <li><a href="https://github.com/pouyathe/glang/blob/main/LICENSE">License</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2026 The G Programming Language. All rights reserved. | Designed for developers, by developers.
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('mainMenu').classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('mainMenu');
+            const menuToggle = document.getElementById('menuToggle');
+            
+            if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+                menu.classList.remove('active');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu after clicking
+                    document.getElementById('mainMenu').classList.remove('active');
+                }
+            });
+        });
+        
+        // Update active menu item on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section, div[id]');
+            const menuItems = document.querySelectorAll('.menu a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            menuItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${current}`) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
