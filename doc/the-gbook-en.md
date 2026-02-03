@@ -71,57 +71,11 @@ Okay, let's go to the dub folder:
 ```bash
 cd dub
 ```
-Now it's enough that dmd is installed on our system. If it's not, from:
-
-‍‍‍```bash
-# for ubuntu
-sudo apt install dmd
-sudo snap install dmd
-# for fedora
-sudo dnf install dmd dub
-# RHEL/CentOS 8+
-sudo dnf config-manager --add-repo https://dlang.org/rpm/$(rpm -E %dist).repo
-sudo dnf install dmd dub
-# From official repos
-sudo pacman -S dlang-dmd dub
-
-# Or from AUR (newer versions)
-yay -S dmd-bin dub-bin
-# Add repository
-sudo zypper addrepo https://download.opensuse.org/repositories/devel:languages:D/openSUSE_Leap_15.4/ dlang
-sudo zypper refresh
-
-# Install
-sudo zypper install dmd dub
-# Enable community repo
-echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
-
-# Install
-apk add dmd dub
-# Temporary installation
-nix-shell -p dmd dub
-
-# Permanent in configuration.nix
-environment.systemPackages = with pkgs; [ dmd dub ];
-# Install
-sudo xbps-install -S dmd dub
-
-# Verify
-dmd --version
-# Emerge
-sudo emerge -av dev-lang/dmd app-misc/dub
-
-# Verify
-dmd --version
-```
-If the Linux you're using isn't on the list, let us know in the GitHub issue section.
+Now it's enough that dmd is installed on our system. If it's not, download it from your linux package manager.
 
 Because G is written in D, it needs to be compiled with D itself.
 
-After installing dmd and dub, in the "dub" folder, write the following script:
-‍‍```bash
-dub
-```
+After installing dmd and dub, in the "dub" folder, write the following script: ```dub```
 This command does the compilation work for you and then gives you the G language binary file.
 And if you want, you can move it to /usr/bin to have access to it from everywhere.
 
