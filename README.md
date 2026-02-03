@@ -10,7 +10,7 @@ Data type, memory safe & super fast programming language.
 ![Made with D](https://img.shields.io/badge/Made%20with-D-000000?style=for-the-badge&logo=d)
 [![Awesome D](https://img.shields.io/badge/Awesome-D-brightgreen)](https://github.com/dlang-community/awesome-d)
 </div>
----
+
 ## 📋 Development Roadmap & Current Focus
 
 ### 🎯 Immediate Priorities (This Week)
