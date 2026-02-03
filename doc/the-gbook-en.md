@@ -269,7 +269,7 @@ std.end: exit N
 std.main:
     [%] : "password"
     [%], password : "password123"
-    if password          # If password was correct
+    if %password          # If password was correct
     lxd go_inside        # Execute this
 std.end: exit N
 ```
