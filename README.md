@@ -10,7 +10,29 @@ Data type, memory safe & super fast programming language.
 ![Made with D](https://img.shields.io/badge/Made%20with-D-000000?style=for-the-badge&logo=d)
 [![Awesome D](https://img.shields.io/badge/Awesome-D-brightgreen)](https://github.com/dlang-community/awesome-d)
 </div>
+---
+## 📋 Development Roadmap & Current Focus
 
+### 🎯 Immediate Priorities (This Week)
+- **Repository Cleanup**
+  - Remove unnecessary pre-built binaries
+  - Add comprehensive build-from-source instructions
+  - Simplify project structure for better transparency
+
+- **Community Response**
+  - Address feedback from D language forum
+  - Implement suggested improvements
+  - Improve code documentation
+
+### 🚀 Next Release: v5.7.7
+- **Documentation Overhaul**
+  - Complete language syntax reference
+  - clean up source code.
+  - Create practical examples and tutorials
+
+---
+
+*Contributions and feedback are welcome!
 ---
 ## 🏆 Featured in awesome-d!
 G Language is now listed in the official [awesome-d](https://github.com/dlang-community/awesome-d) repository!
