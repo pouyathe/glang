@@ -3,7 +3,7 @@ Written by Pouya Mohammadi
 
 > This book uses v5.7.6 of the glang interpreter. Please see ![this page](https://github.com/glang/doc/the-g-programming-language-book/last.pdf) to get the latest version of this book.
 
-> This is the Persian version of this book
+> This is the English version of this book
 
 # Introduction
 We all know that nowadays finding a programming language that is both simple and efficient has become difficult, even impossible. The story starts exactly from here. G is a language that tries to maintain ease of use, small size (minimalism), data protection, and more.
