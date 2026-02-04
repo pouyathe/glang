@@ -57,7 +57,7 @@ This recognition from the D community validates our work in creating a minimal, 
 
 ### 1. Download the Interpreter
 Grab the latest stable release for your platform:
-[dub](https://github.com/pouyathe/glang/source/dub/v0.2.0)
+[dub](https://github.com/pouyathe/glang/tree/main/source/dub/v0.2.0)
 or if You don't want to compile, just get ```.tar.xz``` file in release.
 
 ### 2. VS Code Extension (Recommended)
