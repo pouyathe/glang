@@ -1,9 +1,0 @@
-{
-	"fileVersion": 1,
-	"versions": {
-		"gmp-d": "0.2.30",
-		"mir-algorithm": "2.0.6",
-		"mir-core": "1.7.3",
-		"silly": "1.1.1"
-	}
-}
