@@ -1,0 +1,19 @@
+{
+	"authors": [
+		"Pouya Mohammmadi"
+	],
+	"copyright": "Copyright © 2026, Pouya Mohammmadi",
+	"dependencies": {
+		
+	},
+	"description": "Interpreter for glang.",
+	"license": "proprietary",
+	"name": "glang",
+	"sourcePaths": ["source"],
+	"importPaths": ["source"],
+	"postBuildCommands": [
+        "strip glang",
+        "upx --best glang"
+    	],
+	"buildOptions": ["releaseMode", "noBoundsCheck"]
+}
