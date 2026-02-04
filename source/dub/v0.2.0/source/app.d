@@ -17,13 +17,13 @@
     To-Do list1: v0.2.0
 
     1. add more options for files (DONE)
-    2. complate commendline ()
+    2. complate commendline (DONE)
     3. remove my f*** copyright texts (DONE) (Why i add them? just for nice output :) but i now know they be bad.)
-    4. remove deadcodes.
-    5. fix all ifs.
+    4. remove deadcodes. (NO FINISH YET)
+    5. fix all ifs. (NO FINISH YET)
     6. i think the glang when no commend be show error are bad i must put commend line here. also -cl flag be. (DONE)
-    7. fix error messages.
-    8. remove bad words from value names.
+    7. fix error messages. (DONE)
+    8. remove bad words from value names. (DONE)
 */
 
 /*
