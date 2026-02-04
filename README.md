@@ -24,11 +24,13 @@ Data type, memory safe & super fast programming language.
   - Implement suggested improvements
   - Improve code documentation
 
-### 🚀 Next Release: v5.7.7
+### 🚀 Next Release: v0.2.0
 - **Documentation Overhaul**
   - Complete language syntax reference
-  - clean up source code.
+  - clean up source code (not fully but in to-do).
   - Create practical examples and tutorials
+  - Add REFL.
+  - Add JSON Support.
 
 ---
 
@@ -45,7 +47,7 @@ This recognition from the D community validates our work in creating a minimal, 
 
 ### Key Features
 *   ⚡ **Blazing Fast:** Minimal overhead with efficient execution.
-*   🔒 **Memory Safe:** Built-in safety features to prevent common memory errors.
+*   🔒 **Memory Safe:** Built-in safety features to prevent common memory errors. (use ```safe```)
 *   📦 **Lightweight:** The entire interpreter fits in a tiny binary package.
 *   🛠 **Developer Friendly:** Modern syntax with support for standard libraries (`std`).
 
@@ -55,15 +57,8 @@ This recognition from the D community validates our work in creating a minimal, 
 
 ### 1. Download the Interpreter
 Grab the latest stable release for your platform:
-
-[Download glang.oda](https://github.com/pouyathe/glang/source/oda/glang_foroda.oda)
-***
-see [this](https://github.com/pouyathe/oda) for how to make it yourself.
-Also You can download source files for :
-    [dub](https://github.com/pouyathe/glang/source/dub)
-    
-
-Extract the archive and add the `glang` binary to your system PATH.
+[dub](https://github.com/pouyathe/glang/source/dub/v0.2.0)
+or if You don't want to compile, just get ```.tar.xz``` file in release.
 
 ### 2. VS Code Extension (Recommended)
 Get custom icons for `.g` files.
@@ -129,7 +124,7 @@ The under tools are written fully with G.
 
 ## 📦 Package Manager: Flex
 
-Since **v5.7.6**, G comes with `flex`, a built-in package manager. You can easily create, download, and install external libraries.
+Since **v0.2.0**, G comes with `flex`, a built-in package manager. You can easily create, download, and install external libraries.
 
 ### Installation (Global)
 You may need to run `flex` with root privileges to install libraries globally.
