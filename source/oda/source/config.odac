@@ -1,3 +1,0 @@
-compiler dmd
-test "glang_foroda -v"
-note "Use flex.sh for install flex."
